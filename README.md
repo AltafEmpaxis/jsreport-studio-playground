@@ -2,21 +2,22 @@
 
 A .NET-based reporting application that integrates jsreport for generating, designing, and managing reports through a web-based interface.
 
-## Prerequisites
+## Running the Application
 
-- [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) or later
-- [Node.js](https://nodejs.org/) (automatically managed by jsreport.Binary)
-- Modern web browser (Chrome recommended)
+Follow these steps to get the application up and running:
 
-## Installation & Running
+1. **Prerequisites**
+   - Install [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) or later
+   - Install [Node.js](https://nodejs.org/) (automatically managed by jsreport.Binary)
+   - Use a modern web browser (Chrome recommended)
 
-1. **Clone and Navigate**
+2. **Clone the Repository**
 ```bash
 git clone https://github.com/AltafEmpaxis/jsreport-studio-playground.git
 cd jsreport-studio-playground
 ```
 
-2. **First Time Setup**
+3. **First Time Setup**
 ```bash
 # Clean any existing builds
 dotnet clean
@@ -28,46 +29,33 @@ rd /s /q bin obj jsreport
 dotnet restore
 ```
 
-3. **Build and Run**
+4. **Build and Run**
 ```bash
 dotnet build
 dotnet run
 ```
 
-4. **Access the Application**
-- Open your browser
-- Go to http://localhost:5488
-- The jsreport studio will start automatically
+5. **Access the Application**
+   - Open your web browser
+   - Navigate to http://localhost:5488
+   - The jsreport studio will start automatically
 
-## Contributing
+The application runs on **port 5488** by default. You can change this in the `jsreport.config.json` file if needed.
 
-If you want to contribute to this project:
+## Project Structure
 
-1. **Fork and Clone**
-```bash
-# Fork the repository on GitHub first, then clone your fork
-git clone https://github.com/YOUR-USERNAME/jsreport-studio-playground.git
-cd jsreport-studio-playground
+```
+jsreport-studio-playground/
+├── Program.cs              # Main application entry point
+├── JsReportStudio.csproj  # Project file with dependencies
+├── jsreport.config.json   # jsreport configuration
+└── jsreport/             # Report templates and assets directory (auto-generated)
+    └── data/             # Stored templates and data
 ```
 
-2. **Set Up Remote**
-```bash
-# Add the upstream repository
-git remote add origin https://github.com/AltafEmpaxis/jsreport-studio-playground.git
-git branch -M main
-```
+## Configuration
 
-3. **Push Changes**
-```bash
-# After making your changes
-git add .
-git commit -m "Your commit message"
-git push -u origin main
-```
-
-## Configuration Details
-
-The application is configured in `jsreport.config.json` with these settings:
+The application uses `jsreport.config.json` for configuration:
 
 ```json
 {
@@ -86,36 +74,19 @@ The application is configured in `jsreport.config.json` with these settings:
     },
     "sample-template": {
       "createSamples": true
-    },
-    "chrome-pdf": {
-      "timeout": 30000,
-      "strategy": "chrome-pool"
-    },
-    "scripts": {
-      "timeout": 30000,
-      "allowedModules": ["fs", "path", "lodash"]
-    },
-    "assets": {
-      "searchOnDisk": true,
-      "allowedFiles": "**/*.*"
-    },
-    "express": {
-      "inputRequestLimit": "50mb"
-    },
-    "browser-client": {
-      "timeout": 10000
     }
   }
 }
 ```
 
-## Quick Reference
+## Features
 
-- **Default URL**: http://localhost:5488
-- **Authentication**: Disabled by default
-- **Sample Templates**: Automatically created on first run
-- **Supported Formats**: PDF, Excel, Word, HTML
-- **Storage**: File-based (stored in jsreport/data)
+- Web-based template designer
+- Multiple output formats (PDF, Excel, Word, HTML)
+- Asset management
+- Sample templates included
+- File-based storage
+- No authentication required (by default)
 
 ## Troubleshooting
 
@@ -142,6 +113,12 @@ rd /s /q bin obj jsreport
 dotnet restore
 dotnet run
 ```
+
+## Repository Information
+
+- **Repository**: [jsreport-studio-playground](https://github.com/AltafEmpaxis/jsreport-studio-playground)
+- **Clone URL**: `https://github.com/AltafEmpaxis/jsreport-studio-playground.git`
+- **Branch**: `main`
 
 ## Support
 
