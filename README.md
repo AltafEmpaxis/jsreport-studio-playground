@@ -10,6 +10,7 @@ Follow these steps to get the application up and running:
    - Install [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) or later
    - Install [Node.js](https://nodejs.org/) (automatically managed by jsreport.Binary)
    - Use a modern web browser (Chrome recommended)
+   - Visual Studio 2022 or VS Code (optional)
 
 2. **Clone the Repository**
 ```bash
@@ -41,6 +42,14 @@ dotnet run
    - The jsreport studio will start automatically
 
 The application runs on **port 5488** by default. You can change this in the `jsreport.config.json` file if needed.
+
+## Package Dependencies
+
+```xml
+<PackageReference Include="jsreport.Binary" Version="3.8.0" />
+<PackageReference Include="jsreport.Local" Version="3.8.2" />
+<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="9.0.1" />
+```
 
 ## Project Structure
 
@@ -79,6 +88,24 @@ The application uses `jsreport.config.json` for configuration:
 }
 ```
 
+### Changing the Port
+
+To use a different port:
+
+1. Update the `httpPort` in `jsreport.config.json`:
+```json
+{
+  "httpPort": YOUR_PORT_NUMBER,
+  ...
+}
+```
+
+2. Or set it through environment variable:
+```bash
+set JSREPORT_PORT=YOUR_PORT_NUMBER
+dotnet run
+```
+
 ## Features
 
 - Web-based template designer
@@ -87,6 +114,24 @@ The application uses `jsreport.config.json` for configuration:
 - Sample templates included
 - File-based storage
 - No authentication required (by default)
+
+## Development
+
+### Requirements
+- Visual Studio 2022 or VS Code
+- .NET 9.0 SDK
+- Git
+- Node.js
+
+### Debug Mode
+1. Open the solution in Visual Studio
+2. Set breakpoints in `Program.cs`
+3. Press F5 to start debugging
+
+### VS Code Setup
+1. Install C# extension
+2. Open the folder
+3. Use the `.vscode/launch.json` for debugging configuration
 
 ## Troubleshooting
 
@@ -113,6 +158,12 @@ rd /s /q bin obj jsreport
 dotnet restore
 dotnet run
 ```
+
+4. **Common Issues**
+   - Port 5488 already in use
+   - Node.js not installed or wrong version
+   - Missing .NET SDK
+   - Insufficient permissions for file system access
 
 ## Repository Information
 
