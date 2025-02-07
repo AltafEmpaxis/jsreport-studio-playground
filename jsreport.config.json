@@ -1,0 +1,55 @@
+{
+  "httpPort": 5488,
+  "allowLocalFilesAccess": true,
+  "store": {
+    "provider": "fs"
+  },
+  "extensions": {
+    "authentication": {
+      "enabled": false,
+      "admin": {
+        "username": "admin",
+        "password": "password"
+      }
+    },
+    "sample-template": {
+      "createSamples": true
+    },
+    "chrome-pdf": {
+      "timeout": 30000,
+      "strategy": "chrome-pool"
+    },
+    "scripts": {
+      "timeout": 30000
+    },
+    "assets": {
+      "searchOnDisk": true,
+      "allowedFiles": "**/*.*"
+    },
+    "express": {
+      "inputRequestLimit": "50mb"
+    }
+  },
+  "templatingEngines": {
+    "timeout": 10000,
+    "strategy": "dedicated-process"
+  },
+  "reportTimeout": 60000,
+  "chrome": {
+    "timeout": 30000,
+    "launchOptions": {
+      "args": ["--no-sandbox"]
+    }
+  },
+  "logger": {
+    "console": {
+      "transport": "console",
+      "level": "debug"
+    },
+    "file": {
+      "transport": "file",
+      "level": "info",
+      "filename": "logs/jsreport.log"
+    }
+  }
+}
