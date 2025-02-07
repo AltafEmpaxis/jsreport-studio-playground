@@ -12,6 +12,17 @@ obj/
 project.lock.json
 .DS_Store
 
+# Generated Content
+[Gg]enerated/
+[Oo]utput/
+[Rr]eports/
+[Cc]ache/
+*.generated.*
+**/Generated/
+**/Output/
+**/Reports/
+**/Cache/
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
